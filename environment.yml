@@ -1,0 +1,27 @@
+name: atacseq-downstream
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+  - r-base=4.3
+  - r-yaml
+  - r-matrixstats
+  - r-circlize
+  - r-nmf
+  - bioconductor-deseq2=1.42
+  - bioconductor-apeglm
+  - bioconductor-summarizedexperiment
+  - bioconductor-complexheatmap
+  - bioconductor-chipseeker
+  - bioconductor-clusterprofiler
+  - bioconductor-chromvar
+  - bioconductor-motifmatchr
+  - bioconductor-tfbstools
+  - bioconductor-jaspar2022
+  - bioconductor-genomicranges
+  # footprinting track
+  - tobias
+  - samtools
+  - bedtools
+  - snakemake-minimal
