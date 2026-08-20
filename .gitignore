@@ -1,0 +1,6 @@
+results/
+*.Rhistory
+.RData
+.DS_Store
+data/bam/
+refs/
