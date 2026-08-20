@@ -20,12 +20,43 @@ signal that the synthetic generator embeds, confirming the pipeline works.
 # 1. Install Miniforge (Apple Silicon example)
 curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
 bash Miniforge3-MacOSX-arm64.sh      # accept license, allow conda init
+```
 
-# 2. Create the environment
+The environment is defined in `environment.yml`:
+
+```yaml
+name: atacseq-downstream
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+  - r-base
+  - r-yaml
+  - r-matrixstats
+  - r-circlize
+  - bioconductor-deseq2
+  - bioconductor-apeglm
+  - bioconductor-summarizedexperiment
+  - bioconductor-complexheatmap
+  - bioconductor-chipseeker
+  - bioconductor-clusterprofiler
+  - bioconductor-chromvar
+  - bioconductor-motifmatchr
+  - bioconductor-tfbstools
+  - bioconductor-jaspar2022
+  - bioconductor-genomicranges
+```
+
+> Note: the NMF R package is intentionally **not** in this file — it is
+> installed separately from CRAN (step 3) to avoid a conda/R version conflict.
+
+```bash
+# 2. Create and activate the environment
 mamba env create -f environment.yml
 conda activate atacseq-downstream
 
-# 3. Install the NMF R package separately (see note below)
+# 3. Install the NMF R package from CRAN
 R -e 'install.packages("NMF", repos="https://cloud.r-project.org")'
 ```
 
