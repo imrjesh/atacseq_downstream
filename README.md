@@ -52,6 +52,11 @@ chromVAR (`motifs/differential_tf_activity.csv`) and TOBIAS
 TFs flagged by **both** are the highest-confidence regulatory drivers and top
 the integrated prioritization.
 
+## Tested on
+
+Verified end-to-end on an Apple M2 Pro (macOS, arm64) using Miniforge.
+See [INSTALL.md](INSTALL.md) for full install notes and troubleshooting.
+
 ## License
 
 MIT
