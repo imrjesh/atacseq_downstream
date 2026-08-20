@@ -20,7 +20,7 @@
 # Usage:
 #   Rscript atacseq_downstream_pipeline.R config.yaml
 #
-# Author: <your name>   |   License: MIT
+# Author: Rajesh Kumar|Ph.D.   |   License: MIT
 # =============================================================================
 
 suppressPackageStartupMessages({
