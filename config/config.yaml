@@ -1,0 +1,35 @@
+# ---- Downstream track (count matrix -> DARs, NMF, chromVAR) ----
+counts:     data/example/counts.tsv
+peaks:      data/example/peaks.bed
+metadata:   data/example/metadata.csv
+outdir:     results/downstream
+
+condition:  condition        # metadata column to contrast on
+reference:  control          # reference (baseline) level
+padj:       0.05             # DAR adjusted-p cutoff
+lfc:        1                # DAR |log2FC| cutoff
+min_count:  10               # peak must have >= this many counts...
+min_samples: 3               # ...in >= this many samples
+n_top_var:  3000             # most-variable peaks for NMF/heatmap
+nmf_ranks:  [2, 3, 4, 5, 6]  # NMF ranks to survey
+seed:       42
+
+# Genome/annotation packages — only needed for real data, not the toy run.
+# Leave commented for the toy dataset (annotation/motif steps skip gracefully).
+# genome:   BSgenome.Hsapiens.UCSC.hg38
+# txdb:     TxDb.Hsapiens.UCSC.hg38.knownGene
+# orgdb:    org.Hs.eg.db
+# species:  9606
+
+# ---- Footprinting track (BAMs -> TOBIAS) ----
+# Needs real aligned data; not exercised by the toy dataset.
+footprinting:
+  conditions:
+    control:   data/bam/control.merged.bam
+    treatment: data/bam/treatment.merged.bam
+  genome_fasta: refs/hg38.fa
+  peaks:        data/peaks/consensus_peaks.bed
+  motifs:       refs/JASPAR2022_CORE_vertebrates.jaspar
+  blacklist:    refs/hg38.blacklist.bed
+  outdir:       results/footprinting
+  threads:      8
